@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--意见反馈界面布局文件-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/man_bg"
+    android:orientation="vertical">
+
+    <!--顶部栏-->
+    <include
+        android:id="@+id/top_bar"
+        layout="@layout/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <EditText
+        android:id="@+id/edit_advice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:gravity="start"
+        android:hint="@string/hint_advice"
+        android:maxLength="150"
+        android:minHeight="120dp"
+        android:padding="10dp"
+        android:textColor="@color/edit_advance_color"
+        android:textColorHint="@color/hint_text"
+        android:textSize="@dimen/text_size_small"/>
+
+    <TextView
+        android:id="@+id/advance_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="end"
+        android:paddingBottom="10dp"
+        android:paddingRight="15dp"
+        android:text="150"
+        android:textColor="@color/advance_limit_text"
+        android:textSize="@dimen/text_size_small"/>
+
+    <TextView
+        android:id="@+id/btn_commit"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/advance_tv_style"
+        android:gravity="center"
+        android:text="@string/advance_commit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_large"/>
+
+</LinearLayout>

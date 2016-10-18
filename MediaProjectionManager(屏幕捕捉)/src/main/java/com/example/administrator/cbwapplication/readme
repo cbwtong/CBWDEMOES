@@ -1,0 +1,9 @@
+
+
+在Android 5.0以前，如果开发者要对Android屏幕进行实时截图，往往被折腾得焦头烂额。Android 5.0的出现改变了这种现状，
+Android 5.0新增了MediaProjectionManager管理器，该管理器可以非常方便地实现屏幕捕捉功能。
+使用MediaProjectionManager实现屏幕捕捉的步骤如下。
+1. 以MEDIA_PROJECTION_SERVICE为参数，调用Context.getSystemService()方法即可获取MediaProjectionManager实例。
+2. 调用MediaProjectionManager对象的createScreenCaptureIntent()方法创建一个屏幕捕捉的Intent。
+3. 调用startActivityForResult()方法启动第2步得到的Intent，这样即可启动屏幕捕捉的Intent。
+4. 重写onActivityResult()方法,在该方法中通过MediaProjectionManager对象来获取MeidaProjection对象,在该对象中即可获取被捕获的屏幕.

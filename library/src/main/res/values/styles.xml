@@ -1,0 +1,31 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">
+            @color/colorPrimary
+        </item>
+        <item name="colorPrimaryDark">
+            @color/colorPrimaryDark
+        </item>
+        <item name="colorAccent">
+            @color/colorAccent
+        </item>
+    </style>
+
+    <!--进度条对话框 半透明样式-->
+    <style name="Translucent_NoTitle" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">
+            true
+        </item>
+        <!--  <item name="android:background">@color/loading_bg</item>-->
+        <item name="android:windowBackground">
+            @drawable/loading_layout_shape
+        </item>
+        <item name="android:backgroundDimEnabled">
+            true
+        </item>
+    </style>
+
+</resources>

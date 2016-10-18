@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BlurredView(动态模糊)/BlurredView(动态模糊).iml" filepath="$PROJECT_DIR$/BlurredView(动态模糊)/BlurredView(动态模糊).iml" />
+      <module fileurl="file://$PROJECT_DIR$/CBWApplication.iml" filepath="$PROJECT_DIR$/CBWApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MediaProjectionManager(屏幕捕捉)/MediaProjectionManager(屏幕捕捉).iml" filepath="$PROJECT_DIR$/MediaProjectionManager(屏幕捕捉)/MediaProjectionManager(屏幕捕捉).iml" />
+      <module fileurl="file://$PROJECT_DIR$/android+h5交互/android+h5交互.iml" filepath="$PROJECT_DIR$/android+h5交互/android+h5交互.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/getphone/getphone.iml" filepath="$PROJECT_DIR$/getphone/getphone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wsy/wsy.iml" filepath="$PROJECT_DIR$/wsy/wsy.iml" />
+    </modules>
+  </component>
+</project>

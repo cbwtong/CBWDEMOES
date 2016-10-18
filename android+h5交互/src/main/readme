@@ -1,0 +1,129 @@
+原 荐 android中WebView使用解析
+gefufeng  gefufeng
+发布时间: 2016/02/18 10:06 阅读: 5158 收藏: 204 点赞: 19 评论: 6
+对于webview的简单使用在这里不做过多的说明，使用webview加载网页的核心方法是
+
+public void loadUrl(String url) {}
+下面就是介绍围绕webview进行的一系列的配置。webview与js的交互在我的另一篇博客：http://my.oschina.net/gef/blog/617576，本文中不涉及与js交互的总结。
+
+首先如果你调用了下面代码：
+
+webView = (WebView) findViewById(R.id.webview);
+webView.loadUrl("http://www.baidu.com");
+你会发现你的app会自动打开手机系统自带的默认浏览器，这时候我们需要加一行：
+
+webView.setWebViewClient(new WebViewClient()}
+然后再运行发现就不调用默认浏览器了，下面为大家讲讲WebViewClient这个类：WebViewClient类中的几个方法在我们平时开发中大量的运用，首先是
+
+public boolean shouldOverrideUrlLoading(WebView view, String url) {
+    return false;
+}
+一般情况下我们不需要重写，这个函数有一个返回值，当为false时意思是我们不用管，当前的webview自已加载这个url，当返回为ture时，就让我们自己操作。
+
+public void onPageFinished(WebView view, String url) {
+}
+当页面加载完成时调用，但需要注意的是
+
+/**
+ * When onPageFinished() is called, the
+ * rendering picture may not be updated yet. To get the notification for the
+ * new Picture, use {@link WebView.PictureListener#onNewPicture}.
+ */
+也就是渲染图片有可能没有加载完成。
+
+/**
+ * Notify the host application that the WebView will load the resource
+ * specified by the given url.
+ *
+ * @param view The WebView that is initiating the callback.
+ * @param url The url of the resource the WebView will load.
+ */
+public void onLoadResource(WebView view, String url) {
+}
+这个函数是这要加载资源就会被调用。然后说一下错误处理的函数：
+
+/**
+ * Report an error to the host application. These errors are unrecoverable
+ * (i.e. the main resource is unavailable). The errorCode parameter
+ * corresponds to one of the ERROR_* constants.
+ * @param view The WebView that is initiating the callback.
+ * @param errorCode The error code corresponding to an ERROR_* value.
+ * @param description A String describing the error.
+ * @param failingUrl The url that failed to load.
+ * @deprecated Use {@link #onReceivedError(WebView, WebResourceRequest, WebResourceError)
+ *             onReceivedError(WebView, WebResourceRequest, WebResourceError)} instead.
+ */
+@Deprecated
+public void onReceivedError(WebView view, int errorCode,
+        String description, String failingUrl) {
+}
+重写该函数让你的app更加人性化。
+
+那这里我们又有一个需求：我们要有一个进度条，那我们怎么知道时时的加载进度呢，就不是在WebViewClient类中了，而是在WebChromeClient中：
+
+/**
+ * Tell the host application the current progress of loading a page.
+ * @param view The WebView that initiated the callback.
+ * @param newProgress Current page loading progress, represented by
+ *                    an integer between 0 and 100.
+ */
+public void onProgressChanged(WebView view, int newProgress) {}
+其中参数newProgress就是加载的时时进度。WebChromeClient中还用一些常用的函数，比如：
+
+/**
+ * Notify the host application of a change in the document title.
+ * @param view The WebView that initiated the callback.
+ * @param title A String containing the new title of the document.
+ */
+public void onReceivedTitle(WebView view, String title) {}
+
+/**
+ * Notify the host application of a new favicon for the current page.
+ * @param view The WebView that initiated the callback.
+ * @param icon A Bitmap containing the favicon for the current page.
+ */
+public void onReceivedIcon(WebView view, Bitmap icon) {}
+一个是可以获取网页的title，一个是可以title旁边的icon。
+
+然后说一下webview缓存问题:有时候我们有缓存的需求，就是在没有网络的情况下，以前可以打开的网页也可以通过缓存文件打开，主要代码为：
+
+webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+webSettings.setAppCacheEnabled(true);
+String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/gefdemoweb";
+Log.e(null,path);
+webSettings.setAppCachePath(path);
+第一行设置了缓存模式，第二行设置可以缓存，然后下面设置缓存路径，关于缓存模式有很多种：
+
+public static final int LOAD_DEFAULT = -1;//默认模式，当缓存资源是可用的不过期，就使用，否次网络加载
+public static final int LOAD_NORMAL = 0;//This value is obsolete,过时了，不用管
+public static final int LOAD_CACHE_ELSE_NETWORK = 1;//当缓存资源是可用的就使用,即使它是过期的，否次网络加载
+public static final int LOAD_NO_CACHE = 2;//不使用缓存
+public static final int LOAD_CACHE_ONLY = 3;//不使用网络
+ 然后说一下按返回键的问题，如果你不做任何设置，按返回键肯定要跳到上一个activity，但是我们想让他返回到上一个加载的网页怎么办：
+
+@Override
+public boolean onKeyDown(int keyCode, KeyEvent event) {
+    if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()){
+        webView.goBack();
+        return true;
+    }
+    return super.onKeyDown(keyCode, event);
+}
+完美解决。
+
+最后看一下webSetting的其它常用设置：
+
+setJavaScriptEnabled(true);  //支持js
+setPluginsEnabled(true);  //支持插件
+setUseWideViewPort(false);  //将图片调整到适合webview的大小
+setSupportZoom(true);  //支持缩放
+setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN); //支持内容重新布局
+supportMultipleWindows();  //多窗口
+setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);  //关闭webview中缓存
+setAllowFileAccess(true);  //设置可以访问文件
+setNeedInitialFocus(true); //当webview调用requestFocus时为webview设置节点
+webview webSettings.setBuiltInZoomControls(true); //设置支持缩放
+setJavaScriptCanOpenWindowsAutomatically(true); //支持通过JS打开新窗口
+setLoadWithOverviewMode(true); // 缩放至屏幕的大小
+setLoadsImagesAutomatically(true);  //支持自动加载图片
+关于webview与js的交互，请看我的另一篇博客：http://my.oschina.net/gef/blog/617576

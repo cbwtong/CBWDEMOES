@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">
+        #3F51B5
+    </color>
+    <color name="colorPrimaryDark">
+        #303F9F
+    </color>
+    <color name="colorAccent">
+        #FF4081
+    </color>
+
+    <!--主背景色-->
+    <color name="man_bg">#f7f7f7</color>
+    <color name="top_layout_bg">#73B4FE</color>
+    <color name="white">#fff</color>
+
+    <!--字体颜色-->
+    <color name="edit_advance_color">#333333</color>
+    <color name="hint_text">#dadada</color>
+    <color name="advance_limit_text">#FE7F00</color>
+    
+    
+</resources>

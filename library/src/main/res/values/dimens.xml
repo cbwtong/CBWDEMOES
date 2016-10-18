@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--尺寸间距相关配置-->
+<resources>
+    <dimen name="activity_horizontal_margin">
+        16dp
+    </dimen>
+    <dimen name="activity_vertical_margin">
+        16dp
+    </dimen>
+
+    <!--标题字体-->
+    <dimen name="title_size">22sp</dimen>
+    <!-- 字体大小（特大） -->
+    <dimen name="text_size_larger">20sp</dimen>
+    <!-- 字体大小（微大） -->
+    <dimen name="text_size_large">18sp</dimen>
+    <!-- 字体大小（中） -->
+    <dimen name="text_size_normal">16sp</dimen>
+    <!-- 字体大小（小） -->
+    <dimen name="text_size_small">14sp</dimen>
+    <!-- 字体大小（微小） -->
+    <dimen name="text_size_min">12sp</dimen>
+
+
+    <!-- 间距（特大） -->
+    <dimen name="margin_larger">25dp</dimen>
+    <!-- 间距（大） -->
+    <dimen name="margin_large">20dp</dimen>
+    <!-- 间距（中） -->
+    <dimen name="margin_nomarl">15dp</dimen>
+    <!-- 间距（小） -->
+    <dimen name="margin_small">10dp</dimen>
+    <!-- 间距（特小） -->
+    <dimen name="margin_smaller">5dp</dimen>
+
+    <!--分割线宽度-->
+    <dimen name="margin_part">1px</dimen>
+    <!--分割线宽度(特细)-->
+    <dimen name="margin_part_fine">0.5dp</dimen>
+
+</resources>
