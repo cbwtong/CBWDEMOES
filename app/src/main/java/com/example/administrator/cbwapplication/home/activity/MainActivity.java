@@ -28,7 +28,8 @@ import java.util.List;
 
 @ContentView(R.layout.activity_main)
 public
-class MainActivity extends BaseActivity {
+class
+MainActivity extends BaseActivity {
 
     @ViewInject(R.id.id_viewpager)
     ViewPager mViewPager;
@@ -119,6 +120,8 @@ class MainActivity extends BaseActivity {
         mTabAddress.setOnClickListener(this);
         mTabSet.setOnClickListener(this);
 
+        /*Intent inte = new Intent(MainActivity.this, MontiorAppService.class);
+        startService(inte);*/
     }
 
     @Override
