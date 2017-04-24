@@ -15,10 +15,10 @@
         android:id="@+id/tv_click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/man_bg"
+        android:background="@drawable/advance_tv_style"
         android:padding="15dp"
         android:text="点我跳转到SIM卡应用"
-        android:textColor="@color/title_bg"
+        android:textColor="@color/grey"
         android:textSize="20sp"
         android:textStyle="bold"
         android:visibility="visible"/>

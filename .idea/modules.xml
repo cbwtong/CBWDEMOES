@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/getphone/getphone.iml" filepath="$PROJECT_DIR$/getphone/getphone.iml" />
       <module fileurl="file://$PROJECT_DIR$/launchsim(启动sim卡)/launchsim.iml" filepath="$PROJECT_DIR$/launchsim(启动sim卡)/launchsim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/launchsim(启动sim卡)/launchsim(启动sim卡).iml" filepath="$PROJECT_DIR$/launchsim(启动sim卡)/launchsim(启动sim卡).iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/wsy/wsy.iml" filepath="$PROJECT_DIR$/wsy/wsy.iml" />
     </modules>
